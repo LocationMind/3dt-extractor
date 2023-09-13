@@ -8,3 +8,6 @@ echo "Extracting glb..."
 npx 3d-tiles-tools b3dmToGlb -i  ${RESULT_LIST[0]} --force -o ${RESULT_LIST[1]}
 echo "Converting glb to glTF..."
 npx gltf-pipeline -i ${RESULT_LIST[1]} -o ${RESULT_LIST[2]}
+echo "Fixing glTF content..."
+node fix-gltf.mjs ${RESULT_LIST[2]} fixed-${RESULT_LIST[2]}
+echo "Final out: fixed-${RESULT_LIST[2]}"
