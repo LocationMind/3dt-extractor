@@ -49,8 +49,8 @@ function containsGmlId(ls:Array<any>, dest_id:string):boolean {
 	return false;
 }
 
-function makeOutFileName(src:any):string {
-	return src.replaceAll("/", "_").replaceAll(".", "_") + ".glb";
+function makeOutFileName(src:any, ext:string):string {
+	return src.replaceAll("/", "_").replaceAll(".", "_") + "." + ext;
 }
 
 const indir = process.argv[2];
@@ -62,5 +62,5 @@ if (!indir || !in_id) {
 } else {
 	const candidates = makeCandidatesList(indir);
 	const founds = findB3dm(candidates, in_id);
-	console.log( founds.map( path => `npx 3d-tiles-tools b3dmToGlb -i ${path} -o ${ makeOutFileName(path) }` ).join("\n") );
+	console.log( founds.map( path => `${path} ${ makeOutFileName(path, "glb")} ${ makeOutFileName(path, "gltf")}` ).join("\n") );
 }
