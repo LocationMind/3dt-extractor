@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "3d-tiles-tools": "^0.3.0",
+    "quaternion": "^1.5.1",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
